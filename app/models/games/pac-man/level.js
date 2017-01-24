@@ -4,7 +4,7 @@ export default Ember.Object.extend({
   squareSize: 40,
   teleport: true,
   width: Ember.computed(function(){
-    return this.get('grid.firstObject.length')
+    return this.get('grid.firstObject.length');
   }),
   height: Ember.computed(function(){
     return this.get('grid.length');
@@ -45,16 +45,16 @@ export default Ember.Object.extend({
 
     grid.forEach((row)=>{
       row.forEach((cell)=>{
-        if(cell == 2){
-          hasPelletsLeft = true
+        if(cell === 2){
+          hasPelletsLeft = true;
         }
-      })
-    })
+      });
+    });
     return !hasPelletsLeft;
   },
 
   restart(){
-    var newLayout = jQuery.extend(true, [], this.get('layout'));
+    var newLayout = Ember.copy(this.get('layout'),true);
     this.set('grid', newLayout);
   }
-})
+});

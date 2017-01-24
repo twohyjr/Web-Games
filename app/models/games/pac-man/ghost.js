@@ -34,10 +34,10 @@ export default Ember.Object.extend(SharedStuff, Movement, {
   },
 
   retreat(){
-    this.set('retreatTime', this.get('maxRetreatTime'))
-    this.set('frameCycle', 0)
-    this.set('x', this.get('level.ghostRetreat.x'))
-    this.set('y', this.get('level.ghostRetreat.y'))
+    this.set('retreatTime', this.get('maxRetreatTime'));
+    this.set('frameCycle', 0);
+    this.set('x', this.get('level.ghostRetreat.x'));
+    this.set('y', this.get('level.ghostRetreat.y'));
   },
 
   draw(){
@@ -48,13 +48,13 @@ export default Ember.Object.extend(SharedStuff, Movement, {
   },
 
   changeDirection(){
-    let directions = ['left', 'right', 'up', 'down']
+    let directions = ['left', 'right', 'up', 'down'];
     let directionWeights = directions.map((direction)=>{
       return this.chanceOfPacmanIfInDirection(direction);
-    })
+    });
 
     let bestDirection = this.getRandomItem(directions, directionWeights);
-    this.set('direction', bestDirection)
+    this.set('direction', bestDirection);
   },
 
   chanceOfPacmanIfInDirection(direction) {
@@ -62,16 +62,16 @@ export default Ember.Object.extend(SharedStuff, Movement, {
       return 0;
     } else {
       let desirabilityOfDirection = ((this.get('pac.y') - this.get('y')) * this.get(`directions.${direction}.y`)) +
-                    ((this.get('pac.x') - this.get('x')) * this.get(`directions.${direction}.x`))
+                    ((this.get('pac.x') - this.get('x')) * this.get(`directions.${direction}.x`));
       if(this.get('pac.powerMode')){
         desirabilityOfDirection *= -1;
       }
-      return Math.max(desirabilityOfDirection, 0) + 0.2
+      return Math.max(desirabilityOfDirection, 0) + 0.2;
     }
   },
 
   getRandomItem(list, weight) {
-    var total_weight = weight.reduce(function (prev, cur, i, arr) {
+    var total_weight = weight.reduce(function (prev, cur) {
         return prev + cur;
     });
 
@@ -88,4 +88,4 @@ export default Ember.Object.extend(SharedStuff, Movement, {
     }
   },
 
-})
+});

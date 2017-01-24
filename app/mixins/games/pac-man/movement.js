@@ -13,7 +13,7 @@ export default Ember.Mixin.create({
     } else if(this.animationCompleted()){
       this.finalizeMove();
       this.changeDirection();
-    } else if(this.get('direction') == 'stopped'){
+    } else if(this.get('direction') === 'stopped'){
       this.changeDirection();
     } else {
       this.incrementProperty('frameCycle');
@@ -24,12 +24,12 @@ export default Ember.Mixin.create({
   tickTimers(){
     this.get('timers').forEach((timerName)=>{
       if(this.get(timerName) > 0){
-        this.decrementProperty(timerName)
+        this.decrementProperty(timerName);
       }
-    })
+    });
   },
   animationCompleted(){
-    return this.get('frameCycle') == this.get('framesPerMovement');
+    return this.get('frameCycle') === this.get('framesPerMovement');
   },
   finalizeMove(){
     let direction = this.get('direction');
@@ -54,10 +54,10 @@ export default Ember.Mixin.create({
   nextCoordinate(coordinate, direction){
     let next = this.get(coordinate) + this.get(`directions.${direction}.${coordinate}`);
     if(this.get('level.teleport')){
-      if(direction == 'up' || direction == 'down'){
-        return this.modulo(next, this.get('level.height'))
+      if(direction === 'up' || direction === 'down'){
+        return this.modulo(next, this.get('level.height'));
       } else {
-        return this.modulo(next, this.get('level.width'))
+        return this.modulo(next, this.get('level.width'));
       }
     } else {
       return next;
@@ -67,4 +67,4 @@ export default Ember.Mixin.create({
   modulo(num, mod){
     return ((num + mod) % mod);
   },
-})
+});

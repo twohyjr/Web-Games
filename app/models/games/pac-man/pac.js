@@ -16,17 +16,17 @@ export default Ember.Object.extend(SharedStuff, Movement, {
     let normal = {r: 100, g: 92, b: 0};
     let [r, g, b] = ['r', 'g', 'b'].map(function(rgbSelector){
       let color =  powered[rgbSelector] * timerPercentage +
-                   normal[rgbSelector] * (1 - timerPercentage)
-      return Math.round(color)
-    })
-    return `rgb(${r}%,${g}%,${b}%)`
+                   normal[rgbSelector] * (1 - timerPercentage);
+      return Math.round(color);
+    });
+    return `rgb(${r}%,${g}%,${b}%)`;
   }),
 
   restart(){
     this.set('x', this.get('level.startingPac.x'));
     this.set('y', this.get('level.startingPac.y'));
     this.set('frameCycle', 0);
-    this.set('direction', 'stopped')
+    this.set('direction', 'stopped');
   },
 
   draw(){
@@ -37,11 +37,11 @@ export default Ember.Object.extend(SharedStuff, Movement, {
   },
 
   changeDirection(){
-    let intent = this.get("intent")
+    let intent = this.get("intent");
     if(this.pathBlockedInDirection(intent)){
       this.set('direction', 'stopped');
     } else {
       this.set('direction', intent);
     }
   },
-})
+});

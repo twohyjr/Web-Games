@@ -11,7 +11,7 @@ export default Ember.Mixin.create({
   }),
 
   drawCircle(x, y, radiusDivisor, direction, color = '#000') {
-    let ctx = this.get('ctx')
+    let ctx = this.get('ctx');
     let squareSize = this.get('level.squareSize');
 
     let pixelX = (x + 1/2 + this.offsetFor('x', direction)) * squareSize;

@@ -28,4 +28,4 @@ export default Level.extend({
     x: 4,
     y: 3
   }
-})
+});
