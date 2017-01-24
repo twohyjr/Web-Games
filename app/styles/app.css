@@ -2,6 +2,11 @@
      text-decoration: none;
 }
 
-#myCanvas {
-  background-color: #EDC9AF;
+#pacCanvas {
+  background-color: #ffffff;
+}
+
+
+#tetrisCanvas {
+  background-color: #ffffff;
 }

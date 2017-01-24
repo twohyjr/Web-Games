@@ -1,14 +1,20 @@
-<canvas id="myCanvas" width={{level.pixelWidth}} height={{level.pixelHeight}}></canvas>
+<div class="well">
+     <div class="container">
+         <div class="centered text-center">
+              <h3><button class="btn btn-primary" {{action "startPacMan"}}>Start Pac Man</button></h3>
 
-<br>
+              <canvas id="pacCanvas" width={{level.pixelWidth}} height={{level.pixelHeight}}></canvas>
 
-Score: {{score}} &nbsp; &nbsp; &nbsp;
-Level: {{levelNumber}} &nbsp; &nbsp; &nbsp;
-Lives: {{lives}} &nbsp; &nbsp; &nbsp;
+              <br>
 
-{{#if pac.powerMode}}
-     PowerMode: {{pac.powerModeTime}}
-{{/if}}
+              Score: {{score}} &nbsp; &nbsp; &nbsp;
+              Level: {{levelNumber}} &nbsp; &nbsp; &nbsp;
+              Lives: {{lives}} &nbsp; &nbsp; &nbsp;
 
+              {{#if pac.powerMode}}
+                   PowerMode: {{pac.powerModeTime}}
+              {{/if}}
+         </div>
 
-<h3><button {{action "startPacMan"}}>Start Pac Man</button></h3>
+     </div>
+</div>

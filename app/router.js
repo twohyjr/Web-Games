@@ -9,6 +9,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('games', function() {});
   this.route('pac-man');
+  this.route('tetris');
 });
 
 export default Router;
