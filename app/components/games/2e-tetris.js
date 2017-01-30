@@ -1,10 +1,9 @@
 import Ember from 'ember';
+import Handler from '../../mixins/games/tetris/handler';
 import Cell from '../../models/games/tetris/cell';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend( Handler,{
 
-     screenWidth: 400,
-     screenHeight: 800,
      cellSize: 50,
 
      actions: {
@@ -15,31 +14,14 @@ export default Ember.Component.extend({
      },
 
      initializeTetris(){
-          let cell = Cell.create();
-          this.set('cell',cell);
+          this.initializeHandler();
+          let cell = Cell.create(this.get(ctx));
+
      },
 
      loop(){
-
           this.tickStuff();
           this.renderStuff();
           Ember.run.later(this, this.loop, 1000/60);
      },
-
-     tickStuff(){
-
-     },
-
-     renderStuff(){
-          this.get('cell').renderStuff();
-     },
-
-     clearScreen(){
-          ctx.beginPath();
-
-          ctx.closePath();
-     },
-
-
-
 });

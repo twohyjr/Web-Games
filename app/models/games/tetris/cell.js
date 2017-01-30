@@ -1,14 +1,14 @@
 import Ember from 'ember';
+import SharedStuff from '../../../mixins/games/tetris/handler';
 
 export default Ember.Object.extend({
 
-     tickStuff(){
-          console.log("ticking");
+     init(ctx){
+
      },
 
-     renderStuff(){
-          let canvas = document.getElementById('tetrisCanvas');
-          let ctx = canvas.getContext("2d");
+     render(){
+          let ctx = this.get('ctx');
 
           ctx.fillStyle = 'red';
           ctx.beginPath();
@@ -19,6 +19,6 @@ export default Ember.Object.extend({
                     this.get('cellSize')
                );
           ctx.closePath();
-     }
+     },
 
 });
