@@ -14,14 +14,17 @@ export default Ember.Component.extend( Handler,{
      },
 
      initializeTetris(){
-          this.initializeHandler();
-          let cell = Cell.create(this.get(ctx));
+          let cell = Cell.create();
+          this.set('cell',cell);
 
      },
 
      loop(){
-          this.tickStuff();
-          this.renderStuff();
+          let cell = this.get('cell');
+          this.clearScreen();
+          cell.tickStuff();
+          cell.renderStuff(this.get('ctx'));
+
           Ember.run.later(this, this.loop, 1000/60);
      },
 });

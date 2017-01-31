@@ -21,8 +21,7 @@ export default Ember.Mixin.create({
      }),
 
      initializeHandler(){
-          //let cell = Cell.create();
-          //this.set('cell', cell);
+
      },
 
      tickStuff(){
@@ -30,11 +29,19 @@ export default Ember.Mixin.create({
      },
 
      renderStuff(){
-          //this.get('cell').render();
+
      },
 
      clearScreen(){
-
+          let ctx = this.get('ctx');
+          ctx.fillStyle = '#393939';
+          ctx.fillRect(
+                    0,
+                    0,
+                    this.get('screenWidth'),
+                    this.get('screenHeight')
+               );
+          ctx.closePath();
      },
 
 });

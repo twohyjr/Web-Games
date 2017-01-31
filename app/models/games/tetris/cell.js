@@ -1,20 +1,21 @@
 import Ember from 'ember';
-import SharedStuff from '../../../mixins/games/tetris/handler';
+import Handler from '../../../mixins/games/tetris/handler';
 
-export default Ember.Object.extend({
+export default Ember.Object.extend(Handler,{
 
-     init(ctx){
+     x: 10,
+     y: 10,
 
+     tickStuff(){
+          this.set('x',this.get('x') + 1);
      },
 
-     render(){
-          let ctx = this.get('ctx');
-
+     renderStuff(ctx){
           ctx.fillStyle = 'red';
           ctx.beginPath();
           ctx.fillRect(
-                    (this.get('screenWidth')/2) - (this.get('cellSize')/2),
-                    (this.get('screenHeight')/2) - (this.get('cellSize')/2),
+                    this.get('x'),
+                    this.get('y'),
                     this.get('cellSize'),
                     this.get('cellSize')
                );
