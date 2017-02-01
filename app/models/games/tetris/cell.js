@@ -3,11 +3,18 @@ import Handler from '../../../mixins/games/tetris/handler';
 
 export default Ember.Object.extend(Handler,{
 
-     x: 10,
-     y: 10,
+     x: 0,
+     y: 20,
+
+     left: false,
+     right: true,
 
      tickStuff(){
+
           this.set('x',this.get('x') + 1);
+
+
+
      },
 
      renderStuff(ctx){

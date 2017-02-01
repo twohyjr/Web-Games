@@ -20,28 +20,4 @@ export default Ember.Mixin.create({
        return ctx;
      }),
 
-     initializeHandler(){
-
-     },
-
-     tickStuff(){
-
-     },
-
-     renderStuff(){
-
-     },
-
-     clearScreen(){
-          let ctx = this.get('ctx');
-          ctx.fillStyle = '#393939';
-          ctx.fillRect(
-                    0,
-                    0,
-                    this.get('screenWidth'),
-                    this.get('screenHeight')
-               );
-          ctx.closePath();
-     },
-
 });
